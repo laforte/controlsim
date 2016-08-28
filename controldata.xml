@@ -1,54 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <controlbatch>
 	<controldata>
-		<tag>00F000</tag>
-		<mode>man</mode>
-		<pv>50</pv>
-		<sp>50</sp>
-		<op>50</op>
-		<p>1</p>
-		<i>1</i>
-		<d>1</d>
-		<ratio>1</ratio>
-		<pvh>75</pvh>
-		<pvhh>85</pvhh>
-		<pvhhh>100</pvhhh>
-		<pvl>25</pvl>
-		<pvll>15</pvll>
-		<pvlll>0</pvlll>
+		<tag name="00F000">
+			<name>00F000</name>
+			<mode>man</mode>
+			<pv>50</pv>
+			<sp>50</sp>
+			<op>50</op>
+			<p>1</p>
+			<i>1</i>
+			<d>1</d>
+			<ratio>1</ratio>
+			<pvh>75</pvh>
+			<pvhh>85</pvhh>
+			<pvhhh>100</pvhhh>
+			<pvl>25</pvl>
+			<pvll>15</pvll>
+			<pvlll>0</pvlll>
+		</tag>
 	</controldata>
 	<controldata>
-		<tag>01F001</tag>
-		<mode>man</mode>
-		<pv>50</pv>
-		<sp>50</sp>
-		<op>50</op>
-		<p>1</p>
-		<i>1</i>
-		<d>1</d>
-		<ratio>1</ratio>
-		<pvh>75</pvh>
-		<pvhh>85</pvhh>
-		<pvhhh>100</pvhhh>
-		<pvl>25</pvl>
-		<pvll>15</pvll>
-		<pvlll>0</pvlll>
+		<tag name="01F001">
+			<name>01F001</name>
+			<mode>man</mode>
+			<pv>50</pv>
+			<sp>50</sp>
+			<op>50</op>
+			<p>1</p>
+			<i>1</i>
+			<d>1</d>
+			<ratio>1</ratio>
+			<pvh>75</pvh>
+			<pvhh>85</pvhh>
+			<pvhhh>100</pvhhh>
+			<pvl>25</pvl>
+			<pvll>15</pvll>
+			<pvlll>0</pvlll>
+		</tag>
 	</controldata>
-	<controldata>
-		<tag>02F002</tag>
-		<mode>man</mode>
-		<pv>50</pv>
-		<sp>50</sp>
-		<op>50</op>
-		<p>1</p>
-		<i>1</i>
-		<d>1</d>
-		<ratio>1</ratio>
-		<pvh>75</pvh>
-		<pvhh>85</pvhh>
-		<pvhhh>100</pvhhh>
-		<pvl>25</pvl>
-		<pvll>15</pvll>
-		<pvlll>0</pvlll>
+		<controldata>
+		<tag name="02F002">
+			<name>02F002</name>
+			<mode>man</mode>
+			<pv>50</pv>
+			<sp>50</sp>
+			<op>50</op>
+			<p>1</p>
+			<i>1</i>
+			<d>1</d>
+			<ratio>1</ratio>
+			<pvh>75</pvh>
+			<pvhh>85</pvhh>
+			<pvhhh>100</pvhhh>
+			<pvl>25</pvl>
+			<pvll>15</pvll>
+			<pvlll>0</pvlll>
+		</tag>
 	</controldata>
 </controlbatch>

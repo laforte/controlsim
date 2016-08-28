@@ -28,9 +28,12 @@ $(document).ready(function(){
   
 </script> 
 <?php
+
+//read xml file
 $xml=simplexml_load_file("controldata.xml") or die("Error: Cannot create object");
 
 ?>
+<!--Create table for data-->
 <div class="row">
 <div class="col-sm-4">
 <table class="table table-hover">
@@ -44,14 +47,15 @@ $xml=simplexml_load_file("controldata.xml") or die("Error: Cannot create object"
     </tr>
   </thead>
   <tbody>
-
+<!--foreach xml data-->
 <?php foreach ($xml->children() as $controldata) :?>
-    <tr data-href="dataedit.php?tag=<?php echo $controldata->tag; ?>">
-      <td width="100px"><?php echo $controldata->tag; ?></td>
-      <td width="100px"><?php echo $controldata->mode; ?></td>
-      <td width="100px"><?php echo $controldata->pv; ?></td>
-      <td width="100px"><?php echo $controldata->sp; ?></td>
-      <td width="100px"><?php echo $controldata->op; ?></td>
+<!--make href to edit site-->
+    <tr data-href="dataedit.php?name=<?php echo $controldata->tag->name; ?>">
+      <td width="100px"><?php echo $controldata->tag->name; ?></td>
+      <td width="100px"><?php echo $controldata->tag->mode; ?></td>
+      <td width="100px"><?php echo $controldata->tag->pv; ?></td>
+      <td width="100px"><?php echo $controldata->tag->sp; ?></td>
+      <td width="100px"><?php echo $controldata->tag->op; ?></td>
     </tr>
 <?php endforeach; ?>
   </tbody>

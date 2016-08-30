@@ -1,9 +1,10 @@
 <?php
 //Originator: M.Hoekstra
 //Filename: datacontrol.php
-//Date last edit:28-08-2016
+//Date last edit:29-08-2016
 //File purpose: PHP page to manage all controllers
 /*
+rev 2.0 29-08-2016: Added button to make new controller
 rev 1.0 28-08-2016: table made with date from controldata.xml
 */
 
@@ -35,6 +36,8 @@ $xml=simplexml_load_file("controldata.xml") or die("Error: Cannot create object"
 ?>
 <!--Create table for data-->
 <div class="row">
+<div class="col-sm-1">
+</div>
 <div class="col-sm-4">
 <table class="table table-hover">
   <thead>
@@ -60,5 +63,6 @@ $xml=simplexml_load_file("controldata.xml") or die("Error: Cannot create object"
 <?php endforeach; ?>
   </tbody>
 </table>
+<a href="datanew.php" type="button" class="btn btn-default">Add controller</a>
 </div>
 </div>

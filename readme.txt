@@ -5,3 +5,5 @@ It will let you make your own industrial processes to simulate, the visual simul
 
 It can be used for training purposes.
 
+I am not a programmer this is just a hobby project!
+

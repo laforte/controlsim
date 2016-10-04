@@ -1,9 +1,10 @@
 <?php
 //Originator: M.Hoekstra
 //Filename: datacontrol.php
-//Date last edit:29-08-2016
+//Date last edit:31-08-2016
 //File purpose: PHP page to manage all controllers
 /*
+rev 3.0 31-08-2016: Added back button and reload button.
 rev 2.0 29-08-2016: Added button to make new controller
 rev 1.0 28-08-2016: table made with date from controldata.xml
 */
@@ -28,6 +29,11 @@ $(document).ready(function(){
 });
   
 </script> 
+<script>
+function myFunction() {
+    location.reload();
+}
+</script>
 <?php
 
 //read xml file
@@ -51,18 +57,19 @@ $xml=simplexml_load_file("controldata.xml") or die("Error: Cannot create object"
   </thead>
   <tbody>
 <!--foreach xml data-->
-<?php foreach ($xml->children() as $controldata) :?>
+<?php foreach ($xml->tag as $tag):?>
+<?php // foreach ($xml->children() as $controldata) :?>
 <!--make href to edit site-->
-    <tr data-href="dataedit.php?name=<?php echo $controldata->tag->name; ?>">
-      <td width="100px"><?php echo $controldata->tag->name; ?></td>
-      <td width="100px"><?php echo $controldata->tag->mode; ?></td>
-      <td width="100px"><?php echo $controldata->tag->pv; ?></td>
-      <td width="100px"><?php echo $controldata->tag->sp; ?></td>
-      <td width="100px"><?php echo $controldata->tag->op; ?></td>
+    <tr data-href="dataedit.php?name=<?php echo $tag->name; ?>">
+      <td width="100px"><?php echo $tag->name; ?></td>
+      <td width="100px"><?php echo $tag->mode; ?></td>
+      <td width="100px"><?php echo $tag->pv; ?></td>
+      <td width="100px"><?php echo $tag->sp; ?></td>
+      <td width="100px"><?php echo $tag->op; ?></td>
     </tr>
 <?php endforeach; ?>
   </tbody>
 </table>
-<a href="datanew.php" type="button" class="btn btn-default">Add controller</a>
+<a href="datanew.php" type="button" class="btn btn-default">Add controller</a> <button onclick="myFunction()" class="btn btn-default">Reload data</button> <a href="instructor.php" type="button" class="btn btn-default">Back</a>
 </div>
 </div>

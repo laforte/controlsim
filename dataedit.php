@@ -1,10 +1,11 @@
 <?php
 //Originator: M.Hoekstra
 //Filename: Dataedit.php
-//Date last edit:28-08-2016
-//File purpose: PHP to edit data to xml
+//Date last edit:31-08-2016
+//File purpose: PHP to edit/delete data in xml file controldata.xml
 /*
-rev 1.0 28-08-2016:basic made to edit controllers
+rev 2.0 31-08-2016: Added Delete button to delete tags
+rev 1.0 28-08-2016: basic made to edit controllers
 */
 
 ?>
@@ -44,8 +45,48 @@ $node->pvl = $_POST['pvl'];
 $node->pvll = $_POST['pvll'];
 $node->pvlll = $_POST['pvlll'];
 file_put_contents($file, $xml->asXML());
-echo "New data is saved";
-} 
+//show message
+echo "<div class='alert alert-success'>
+    <strong>Edit completed!</strong> The new data is now saved.
+  </div>";
+
+}
+?>
+
+<?php 
+
+//script for deleting the tag
+
+if(isset($_POST['delete'])){ //check if form was submitted
+
+
+//Use XPath to find target node for removal
+$target = $xml->xpath("tag[@name='$tag']");
+
+//If target does not exist (already deleted by someone/thing else), halt
+if(!$target)
+return; //Returns null
+
+//Import simpleXml reference into Dom & do removal (removal occurs in simpleXML object)
+$domRef = dom_import_simplexml($target[0]); //Select position 0 in XPath array
+$domRef->parentNode->removeChild($domRef);
+
+//Format XML to save indented tree rather than one line and save
+$dom = new DOMDocument('1.0');
+$dom->preserveWhiteSpace = true;
+$dom->formatOutput = true;
+$dom->loadXML($xml->asXML());
+$dom->save('controldata.xml');
+
+//show message
+echo "<div class='w3-panel w3-red'>
+  <h3>Deleted!</h3>
+  <p>Tag is deleted</p>
+</div>";
+echo "<a href='datacontrol.php' type='button' class='btn btn-default'>Back to overview</a>";
+exit;
+}
+
 ?>
 <?php foreach ($xml->children() as $controldata) ;?>
 
@@ -60,7 +101,12 @@ echo "New data is saved";
 	</div>
 	<div class="form-group">
 		<label for="mode">Mode:</label>
-		<input type="text" class="form-control" name="mode" id="mode" value="<?php echo $node->mode; ?>">
+			<select class="form-control" name="mode" id="mode" value="<?php echo $node->mode; ?>">
+  <option value="<?php echo $node->mode; ?>"><?php echo $node->mode; ?></option>
+  <option value="MAN">MAN</option>
+  <option value="AUTO">AUTO</option>
+  <option value="CAS">CAS</option>
+</select>
 	</div>
 	<div class="form-group">
 		<label for="mode">PV:</label>
@@ -115,7 +161,7 @@ echo "New data is saved";
 		<input type="text" class="form-control" name="pvlll" id="pvlll" value="<?php echo $node->pvlll; ?>">
 	</div>
   
-		<button type="submit" name="submit" value="Submit" class="btn btn-default">Submit</button>
+		<button type="submit" name="submit" value="Submit" class="btn btn-default">Submit</button> <button type="submit" name="delete" value="delete" class="btn btn-default">Delete</button> <a href="datacontrol.php" type="button" class="btn btn-default">Back</a>
 </form>
-<a href="datacontrol.php" type="button" class="btn btn-default">Back</a>
+
 </div>

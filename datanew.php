@@ -31,6 +31,7 @@ $sxe = new SimpleXMLElement($xml->asXML());
 
 //make xml items
 $name = $_POST['tagname'];
+$mode = $_POST['mode'];
 $pv = $_POST['pv'];
 $sp = $_POST['sp'];
 $op = $_POST['op'];
@@ -44,10 +45,12 @@ $pvhhh = $_POST['pvhhh'];
 $pvl = $_POST['pvl'];
 $pvll = $_POST['pvll'];
 $pvlll = $_POST['pvlll'];
-$controldata = $sxe->addChild('controldata');
-$tag = $controldata->addChild('tag');
+
+
+$tag = $sxe->addChild('tag');
 $tag->addAttribute('name', $name);
 $name  = $tag->addChild('name',$name);
+$mode  = $tag->addChild('mode',$mode);
 $pv  = $tag->addChild('pv',$pv);
 $sp  = $tag->addChild('sp',$sp);
 $op  = $tag->addChild('op',$op);
@@ -69,7 +72,12 @@ $sxe->asXML("controldata.xml");
 
 
 
-echo "New data is saved";
+echo "<div class='alert alert-success'>
+    <strong>New data input completed!</strong> The new data is now saved.
+  </div>";
+  echo
+  "<a href='datacontrol.php' type='button' class='btn btn-default'>Back to overview</a>" ;
+  exit;
 } 
 ?>
 <?php foreach ($xml->children() as $controldata) ;?>
@@ -81,11 +89,16 @@ echo "New data is saved";
 <form action="" method="post">
 	<div class="form-group">
 		<label for="tagname">Tag-name:</label>
-		<input type="text" name="tagname" class="form-control" id="tagname" value="xxXxxx">
+		<input type="text" name="tagname" class="form-control" id="tagname">
 	</div>
+	
 	<div class="form-group">
 		<label for="mode">Mode:</label>
-		<input type="text" class="form-control" name="mode" id="mode" value="MAN">
+	<select class="form-control" name="mode" id="mode">
+	<option value="MAN">MAN</option>
+	<option value="AUTO">AUTO</option>
+	<option value="CAS">CAS</option>
+</select>
 	</div>
 	<div class="form-group">
 		<label for="mode">PV:</label>
@@ -140,7 +153,7 @@ echo "New data is saved";
 		<input type="text" class="form-control" name="pvlll" id="pvlll" value="">
 	</div>
   
-		<button type="submit" name="submit" value="Submit" class="btn btn-default">Submit</button>
+		<button type="submit" name="submit" value="Submit" class="btn btn-default">Submit</button>&nbsp;&nbsp; <a href="datacontrol.php" type="button" class="btn btn-default">Back</a>
 </form>
-<a href="datacontrol.php" type="button" class="btn btn-default">Back</a>
+
 </div>

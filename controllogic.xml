@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <controlblocks>
 
- <logic name="20X001"> 
-		<name>20X001</name>  
-		<description>simple block to calculate a flow</description>
-		<firstparam>00F000</firstparam>
-		<firstparamcv>pv</firstparamcv>
-		<secondparam>01F001</secondparam>
-		<secondparamcv>op</secondparamcv>
-		<thirdparam>02F002</thirdparam>
-		<thirdparamcv>PV</thirdparamcv>
-		<fourthparam>02F002</fourthparam>
-		<fourthparamcv>PV</fourthparamcv>
-		<fifthparam>02F002</fifthparam>
-		<fifthparamcv>OP</fifthparamcv>
-		<operatorone>+</operatorone>
-		<operatortwo>+</operatortwo>
-		<operatorthree>-</operatorthree>
-		<operatorfour>+</operatorfour>
-		<result>223</result>
-		
-    </logic> 
+  
 
-</controlblocks>
+<logic name="22XA-001"><name>22XA-001</name><description>Test calc block</description><firstparam>01PT-015</firstparam><firstparamcv>PV</firstparamcv><secondparam>02PT-016</secondparam><secondparamcv>PV</secondparamcv><thirdparam/><thirdparamcv/><fourthparam/><fourthparamcv/><fifthparam/><fifthparamcv/><operatorone>+</operatorone><operatortwo/><operatorthree/><operatorfour/><result>0</result></logic></controlblocks>
